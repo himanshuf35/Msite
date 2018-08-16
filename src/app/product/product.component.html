@@ -1,0 +1,8 @@
+<div id="productList">
+    <ul>
+        <li *ngFor="let product of ProductArray">
+            <span>{{product.name}}</span> 
+            <span><a (click)="dataservice.AddToCart(product)">add</a></span>
+        </li>
+      </ul>
+</div>
