@@ -31,6 +31,7 @@ export class DataserviceService {
     this.CartArray.push(product);
     let count=parseInt(localStorage.getItem("ProductCount"));
     count++;
+    this.CountPublish(count);
     localStorage.setItem("ProductCount",count.toString());
     localStorage.setItem("cartarray",JSON.stringify(this.CartArray));
     }
@@ -42,11 +43,17 @@ export class DataserviceService {
     }
   }
 
-  public _subject = new Subject<string>();
-  public event = this._subject.asObservable();
+  public category_subject = new Subject<string>();
+  public count_subject = new Subject<string>();
+  public category_subject_event = this.category_subject.asObservable();
+  public count_subject_event = this.count_subject.asObservable();
 
-  public publish(category) {
-    this._subject.next(category);
+  public CategoryPublish(category) {
+    this.category_subject.next(category);
+  }
+  private CountPublish(count)
+  {
+    this.count_subject.next(count);
   }
  
 }

@@ -1,8 +1,24 @@
-<div id="productList">
-    <ul>
-        <li *ngFor="let product of ProductArray">
-            <span>{{product.name}}</span> 
-            <span><a (click)="dataservice.AddToCart(product)">add</a></span>
-        </li>
-      </ul>
+<div id="productList" class="container">
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>MRP</th>
+        <th>Add to Cart</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let product of ProductArray">
+        <td>{{product.name}}</td>
+        <td>{{product.MRP}}</td>
+        <td>
+          <a (click)="dataservice.AddToCart(product)">add</a>
+        </td>
+      </tr>
+    </tbody>
+
+
+
+  </table>
 </div>

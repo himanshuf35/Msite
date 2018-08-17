@@ -22,13 +22,14 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
 
-    this.dataservice.event.subscribe((data) => {
+    this.dataservice.category_subject_event.subscribe((data) => {
       console.log(data); // {data: 'some data'}
       this.OpenedCategory= data
        this.data.Categories.forEach(element => {
          if(this.OpenedCategory===element.Category)
          {
                this.ProductArray=element.Product;
+               console.log(this.ProductArray)
          }
        });
     });

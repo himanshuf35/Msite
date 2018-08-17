@@ -24,7 +24,7 @@ closeNav() {
 }
 public OpenCategory(category)
 {
-  this.dataservice.publish(category);
+  this.dataservice.CategoryPublish(category);
    this.router.navigate(['/product']);
 }
 
